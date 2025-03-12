@@ -38,7 +38,8 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authz -> authz
-                    .anyRequest().permitAll()
+                    .requestMatchers("api/login", "api/register").permitAll()
+                    .anyRequest().authenticated()
                 )
                 .csrf(csrf -> csrf.disable()) // 禁用 CSRF
                 .sessionManagement(session -> session.disable()) // 禁用 session

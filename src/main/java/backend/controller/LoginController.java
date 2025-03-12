@@ -9,9 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import backend.service.AuthService;
 import backend.service.UserService;
+import backend.util.PasswordUtil;
+
 import java.util.Optional;
 
-import backend.PasswordUtil;
 import backend.entity.LoginRequest;
 import backend.entity.User;
 
