@@ -39,6 +39,7 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(authz -> authz
                     .requestMatchers("api/login", "api/register").permitAll()
+                    .requestMatchers("/ws/chat").permitAll() // 允許 WebSocket 握手請求，另外再在ChatWebSocketHandler處理驗證與授權
                     .anyRequest().authenticated()
                 )
                 .csrf(csrf -> csrf.disable()) // 禁用 CSRF
