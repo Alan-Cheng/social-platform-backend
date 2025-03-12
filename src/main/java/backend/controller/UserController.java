@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import backend.PasswordUtil;
-import backend.model.User;
+import backend.entity.User;
 import backend.service.UserService;
 
 import java.security.NoSuchAlgorithmException;

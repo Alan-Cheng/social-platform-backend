@@ -1,6 +1,10 @@
-package backend.model;
+package backend.entity;
 
 import jakarta.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
+import backend.entity.Role;
 
 @Entity
 @Table(name = "users")
@@ -14,9 +18,8 @@ public class User {
     @Column(name = "user_phone", nullable = false)
     private String userPhone;
 
-    @Column(name = "user_name", unique = true, nullable = true)
+    @Column(name = "user_name", unique = true)
     private String userName;
-    
     
     @Column(nullable = true)
     private String email;
@@ -30,9 +33,18 @@ public class User {
     @Column
     private String biography;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+        name = "user_roles",
+        joinColumns = @JoinColumn(name = "user_id"),
+        inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Set<Role> roles = new HashSet<>();
+
     public User() {
     }
 
+    // Getters and Setters
     public Long getUserId() {
         return userId;
     }
@@ -42,15 +54,15 @@ public class User {
     }
 
     public String getUserPhone() {
-    	return userPhone;
+        return userPhone;
     }
     
     public void setUserPhone(String userPhone) {
-    	this.userPhone = userPhone;
+        this.userPhone = userPhone;
     }
     
     public String getUserName() {
-    	return userName != null ? userName : "";
+        return userName != null ? userName : "";
     }
 
     public void setUserName(String userName) {
@@ -87,5 +99,13 @@ public class User {
 
     public void setBiography(String biography) {
         this.biography = biography;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }

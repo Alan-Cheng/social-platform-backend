@@ -1,4 +1,4 @@
-package backend.model;
+package backend.entity;
 
 public class LoginRequest {
 

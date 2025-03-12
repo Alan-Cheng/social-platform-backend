@@ -16,17 +16,29 @@ repositories {
 }
 
 dependencies {
+    // Spring Security 依賴
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    // JWT
+    implementation 'io.jsonwebtoken:jjwt:0.12.6'
+    implementation 'io.jsonwebtoken:jjwt-api:0.12.6'
+    implementation 'io.jsonwebtoken:jjwt-impl:0.12.6'
+    implementation 'io.jsonwebtoken:jjwt-jackson:0.12.6' // 使用 Jackson 解析 JWT
+
+    // 密碼加密 (BCrypt)
+    implementation 'org.springframework.security:spring-security-crypto'
+
     // 原本的依賴
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     runtimeOnly 'com.mysql:mysql-connector-j'
-    
-    // 新增的 Redis 依賴
+
+    // Redis 依賴
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
-    
-    // 新增的 WebSocket 依賴
+
+    // WebSocket 依賴
     implementation 'org.springframework.boot:spring-boot-starter-websocket'
-    
+
     // 測試相關的依賴
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'

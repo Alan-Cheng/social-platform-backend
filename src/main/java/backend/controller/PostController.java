@@ -3,7 +3,7 @@ package backend.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import backend.model.Post;
+import backend.entity.Post;
 import backend.service.PostService;
 
 import java.util.List;
