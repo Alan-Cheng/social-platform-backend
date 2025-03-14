@@ -38,7 +38,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authz -> authz
-                    .requestMatchers("api/login", "api/register").permitAll()
+                    .requestMatchers("api/login", "api/register", "api/host-ip").permitAll()
                     .requestMatchers("/ws/chat").permitAll() // 允許 WebSocket 握手請求，另外再在ChatWebSocketHandler處理驗證與授權
                     .anyRequest().authenticated()
                 )
