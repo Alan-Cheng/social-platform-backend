@@ -7,6 +7,10 @@ import backend.entity.Post;
 import backend.service.PostService;
 
 import java.util.List;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -29,5 +33,10 @@ public class PostController {
     @DeleteMapping("/{postId}")
     public void deletePost(@PathVariable Long postId) {
         postService.deletePost(postId);
+    }
+
+    @PutMapping("/{postId}")
+    public void updatePost(@RequestBody Post post) {
+        postService.updatePost(post);
     }
 }

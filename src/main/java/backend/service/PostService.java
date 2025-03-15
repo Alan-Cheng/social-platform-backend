@@ -56,4 +56,8 @@ public class PostService {
             throw new IllegalArgumentException("Post with ID " + postId + " not found");
         }
     }
+
+    public void updatePost(Post post) {
+        postRepository.save(post);
+    }
 }
